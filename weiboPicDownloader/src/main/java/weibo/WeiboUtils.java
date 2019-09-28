@@ -1,11 +1,8 @@
 package weibo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
@@ -17,9 +14,11 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.util.EntityUtils;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SuppressWarnings("deprecation")
 public class WeiboUtils {
@@ -32,8 +31,9 @@ public class WeiboUtils {
 	 * @author yanximin
 	 */
 	static String uidToContainerId(String uid) {
-		if (uid == null)
+		if (uid == null) {
 			throw new IllegalArgumentException("uid is null");
+		}
 		return 107603 + uid;
 	}
 
